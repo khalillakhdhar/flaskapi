@@ -8,7 +8,7 @@ import { ProductsService } from '../services/products.service';
   styleUrls: ['./readprod.component.css']
 })
 export class ReadprodComponent implements OnInit {
-products:Products[];
+products=new Array<Products>();
   constructor(private api:ProductsService) { }
 
   ngOnInit(): void {
@@ -21,6 +21,15 @@ products:Products[];
       console.log(this.products);
 
     });
+  }
+  delete(id:any)
+  {
+    if(confirm("are you sure want to delete the product?"))
+    {
+      this.api.delete(id).subscribe();
+window.location.reload();
+
+    }
   }
 
 }

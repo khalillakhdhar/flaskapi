@@ -10,22 +10,22 @@
           </div>
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="your product title">
+            <input type="text" name="title" [(ngModel)]="product.title" class="form-control" id="title" placeholder="your product title">
           </div>
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
+            <textarea class="form-control" name="description" [(ngModel)]="product.productDescription" id="description" rows="3"></textarea>
           </div>
           <div class="mb-3">
             <label for="brand" class="form-label">Product brand</label>
-            <input type="text" class="form-control" id="brand" placeholder="your product brand">
+            <input type="text" name="brand" class="form-control" [(ngModel)]="product.productBrand" id="brand" placeholder="your product brand">
           </div>
           <div class="mb-3">
             <label for="price" class="form-label">Product price</label>
-            <input type="number" class="form-control" id="price" placeholder="your product price">
+            <input type="number" name="price" class="form-control" [(ngModel)]="product.price" id="price" placeholder="your product price">
           </div>
           <div class="mb-3">
-              <input type="submit" value="add product" class="btn btn-outline-dark">
+              <input type="submit" (click)="addprod()" value="add product" class="btn btn-outline-dark">
           </div>
         </form>
       </div>

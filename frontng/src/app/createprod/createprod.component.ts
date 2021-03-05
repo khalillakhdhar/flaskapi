@@ -9,6 +9,7 @@ import { ProductsService } from '../services/products.service';
 })
 export class CreateprodComponent implements OnInit {
 product:Products
+products=new Array<Products>();
   constructor(private api:ProductsService) { }
 
   ngOnInit(): void {
@@ -16,7 +17,9 @@ product:Products
   }
 addprod()
 {
-
+  this.api.create(this.product as Products).subscribe(product => {this.products.push(this.product); });
+  window.location.reload();
+ this.product=new Products();
 
 }
 }

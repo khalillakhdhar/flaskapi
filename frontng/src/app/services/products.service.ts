@@ -20,8 +20,24 @@ export class ProductsService {
   constructor(    private http: HttpClient,
     ) { }
 
+    create(product: Products): Observable<any> {
+      return this.http.post<Products>(this.url, product, httpOptions).pipe(
+        tap((newProducts: Products) => console.log(`added production w/ id=${newProducts.id}`)),
+        catchError(this.handleError<Products>('create'))
+      );
+    }
+
     getProducts(): Observable<Products[]> {
       return this.http.get<Products[]>(`${this.url}`)
+    }
+    delete(product: Products | number): Observable<Products> {
+      const id = typeof product === 'number' ? product : product.id;
+      const url = `${this.url}/${id}`;
+  
+      return this.http.delete<Products>(url, httpOptions).pipe(
+        tap(_ => console.log(`deleted product id=${id}`)),
+        catchError(this.handleError<Products>('delete'))
+      );
     }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

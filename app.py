@@ -75,7 +75,7 @@ def update_product_by_id(id):
     product = product_schema.dump(get_product)
     return make_response(jsonify(product))
 @app.route('/products/<id>', methods = ['DELETE'])
-@cross_origin()
+@cross_origin(origin='localhost:4200',headers=['Content- Type','Authorization'])
 def delete_product_by_id(id):
     get_product = Product.query.get(id)
     db.session.delete(get_product)
