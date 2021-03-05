@@ -41,5 +41,7 @@ window.location.reload();
   }
 }
 select(pr)
-{}
+{
+  this.product=pr;
+}
 }
