@@ -24,6 +24,7 @@ addprod()
  this.product=new Products();
 
 }
+
 getprods()
 {
   this.api.getProducts().subscribe(res=>{
@@ -53,7 +54,9 @@ cancel()
 }
 updateprod()
 {
-
+  this.api.update(this.product as Products).subscribe(product => {this.products.push(this.product); });
+  //window.location.reload();
+ 
   this.product=new Products();
   this.up=false;
 

@@ -26,6 +26,12 @@ export class ProductsService {
         catchError(this.handleError<Products>('create'))
       );
     }
+    update(product: Products): Observable<any> {
+      return this.http.put<Products>(this.url, product, httpOptions).pipe(
+        tap((newProducts: Products) => console.log(`added production w/ id=${newProducts.id}`)),
+        catchError(this.handleError<Products>('create'))
+      );
+    }
 
     getProducts(): Observable<Products[]> {
       return this.http.get<Products[]>(`${this.url}`)
