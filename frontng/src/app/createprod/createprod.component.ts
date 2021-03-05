@@ -14,6 +14,7 @@ products=new Array<Products>();
 
   ngOnInit(): void {
     this.product=new Products();
+    this.getprods();
   }
 addprod()
 {
@@ -22,4 +23,22 @@ addprod()
  this.product=new Products();
 
 }
+getprods()
+{
+  this.api.getProducts().subscribe(res=>{
+    this.products = res;
+    console.log(this.products);
+
+  });
+}
+delete(id:any)
+{
+  if(confirm("are you sure want to delete the product?"))
+  {
+    this.api.delete(id).subscribe();
+window.location.reload();
+
+  }
+}
+
 }
