@@ -48,14 +48,14 @@ def index():
     get_products = Product.query.all()
     product_schema = ProductSchema(many=True)
     products = product_schema.dump(get_products)
-    return make_response(jsonify({"product": products}))
+    return make_response(jsonify(products))
 @app.route('/products/<id>', methods = ['GET'])
 @cross_origin()
 def get_product_by_id(id):
     get_product = Product.query.get(id)
     product_schema = ProductSchema()
     product = product_schema.dump(get_product)
-    return make_response(jsonify({"product": product}))
+    return make_response(jsonify({product}))
 @app.route('/products/<id>', methods = ['PUT'])
 @cross_origin()
 def update_product_by_id(id):
@@ -73,7 +73,7 @@ def update_product_by_id(id):
     db.session.commit()
     product_schema = ProductSchema(only=['id', 'title', 'productDescription','productBrand','price'])
     product = product_schema.dump(get_product)
-    return make_response(jsonify({"product": product}))
+    return make_response(jsonify(product))
 @app.route('/products/<id>', methods = ['DELETE'])
 @cross_origin()
 def delete_product_by_id(id):
