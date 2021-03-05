@@ -25,7 +25,8 @@
             <input type="number" name="price" class="form-control" [(ngModel)]="product.price" id="price" placeholder="your product price">
           </div>
           <div class="mb-3">
-              <input type="submit" (click)="addprod()" value="add product" class="btn btn-outline-dark">
+              <span><input type="submit" (click)="addprod()" value="add product" class="btn btn-outline-dark"></span>
+              <span><input type="button" (click)="updateprod()" value="add product" class="btn btn-outline-dark">&nbsp;&nbsp;<input type="button" (click)="cancel()" value="add product" class="btn btn-outline-dark"></span>
           </div>
         </form>
       </div>
