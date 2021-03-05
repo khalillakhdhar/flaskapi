@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateprodComponent } from './createprod/createprod.component';
 import { ReadprodComponent } from './readprod/readprod.component';
+import { ProductsComponent } from './classes/products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateprodComponent,
-    ReadprodComponent
+    ReadprodComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
