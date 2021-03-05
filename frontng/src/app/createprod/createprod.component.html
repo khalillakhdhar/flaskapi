@@ -35,7 +35,7 @@
   </div>
   <table class="table table-bordered">
     <tr  > <th>#</th><th>Title</th><th>Description</th><th>Brand</th><th>Price</th><th>Action</th></tr>
-     <tr *ngFor="let pr of products"><td>{{pr.id}}</td><td>{{pr.title}}</td><td>{{pr.productDescription}}</td><td>{{pr.productBrand}}</td><td>{{pr.price}}</td><td><button class="btn btn-outline-danger" (click)="delete(pr.id)">Delete</button></td></tr>
+     <tr *ngFor="let pr of products"><td>{{pr.id}}</td><td>{{pr.title}}</td><td>{{pr.productDescription}}</td><td>{{pr.productBrand}}</td><td>{{pr.price}}</td><td><button class="btn btn-outline-danger" (click)="delete(pr.id)">Delete</button><button class="btn btn-outline-success" (click)="select(pr)">Select</button></td></tr>
  
  
  
