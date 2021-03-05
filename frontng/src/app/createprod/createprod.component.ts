@@ -40,6 +40,6 @@ window.location.reload();
 
   }
 }
-select()
+select(pr)
 {}
 }
