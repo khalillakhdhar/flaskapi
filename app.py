@@ -69,6 +69,7 @@ def update_product_by_id(id):
         get_product.productBrand = data['productBrand']
     if data.get('price'):
         get_product.price= data['price']    
+        
     db.session.add(get_product)
     db.session.commit()
     product_schema = ProductSchema(only=['id', 'title', 'productDescription','productBrand','price'])
